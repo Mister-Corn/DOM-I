@@ -38,73 +38,53 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-const logo = document.querySelector("#logo-img");
+let logo = document.querySelector("#logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
-//---Header 
 // Insert Nav Items into Nav Bar
-const nav = document.querySelector("nav");
-let navItem = document.querySelectorAll("nav a");
-navItem.forEach((element, index) => {
-  element.innerHTML = siteContent["nav"]["nav-item-" + (index + 1)];
-});
-// Adding Two <a> Tags to the Nav-Bar. Some Constants:
-const newElem = element => document.createElement(`${element}`);
-const newText = text => document.createTextNode(`${text}`);
-// Now the actual creation and slapping them into the DOM
-// Front
-const frontElem = newElem(`a`);
-frontElem.appendChild(newText(`Front`));
-nav.prepend(frontElem);
-// Back
-const backElem = newElem(`a`);
-backElem.appendChild(newText('Back'));
-nav.appendChild(backElem);
-// To make all the <a> elements (light) green
-navItem = document.querySelectorAll("nav a");
-navItem.forEach(element => element.style.color = "lightgreen");
-//------End Header  
 
-//---CTA
-const ctaHeading = document.querySelectorAll(".cta-text")
+let selNavItem = document.querySelectorAll("nav a");
+selNavItem.forEach((element, index) => {
+  element.innerHTML = siteContent["nav"]["nav-item-" + (index + 1)];
+})
+
+let ctaHeading = document.querySelectorAll(".cta-text")
 ctaHeading[0].firstElementChild.innerHTML = siteContent.cta["h1"];
 ctaHeading[0].lastElementChild.innerHTML = siteContent.cta["button"];
 
-const ctaLogo = document.querySelector("section img");
+let ctaLogo = document.querySelector("section img");
 ctaLogo.src = 'img/header-img.png';
-//------End CTA 
 
-//---Main-Content 
-const topContent = document.querySelector(".top-content");
+// let topContent = document.querySelector(".top-content .text-content")
+// topContent.firstElementChild.innerHTML = siteContent["main-content"]["features-h4"];
+// topContent.lastElementChild.innerHTML = siteContent["main-content"]["features-content"];
+
+let topContent = document.querySelector(".top-content");
 console.log(topContent.children);
 topContent.children[0].firstElementChild.innerHTML = siteContent["main-content"]["features-h4"];
 topContent.children[0].lastElementChild.innerHTML = siteContent["main-content"]["features-content"];
 topContent.children[1].firstElementChild.innerHTML = siteContent["main-content"]["about-h4"];
 topContent.children[1].lastElementChild.innerHTML = siteContent["main-content"]["about-content"];
 
-const middleImg = document.querySelector("#middle-img");
+let middleImg = document.querySelector("#middle-img");
 middleImg.src = siteContent["main-content"]["middle-img-src"];
 
-const bottomContent = document.querySelector(".bottom-content")
+let bottomContent = document.querySelector(".bottom-content")
 bottomContent.children[0].firstElementChild.innerHTML = siteContent["main-content"]["services-h4"];
 bottomContent.children[0].lastElementChild.innerHTML = siteContent["main-content"]["services-content"];
 bottomContent.children[1].firstElementChild.innerHTML = siteContent["main-content"]["product-h4"];
 bottomContent.children[1].lastElementChild.innerHTML = siteContent["main-content"]["product-content"];
 bottomContent.children[2].firstElementChild.innerHTML = siteContent["main-content"]["vision-h4"];
 bottomContent.children[2].lastElementChild.innerHTML = siteContent["main-content"]["vision-content"];
-//------End Main-Content 
 
-//---Contact 
-const contactHead = document.querySelector(".contact h4");
+let contactHead = document.querySelector(".contact h4");
 contactHead.innerHTML = siteContent["contact"]["contact-h4"];
 
-const contactBody = document.querySelectorAll(".contact p");
+let contactBody = document.querySelectorAll(".contact p");
 contactBody[0].innerHTML = siteContent["contact"]["address"];
 contactBody[1].innerHTML = siteContent["contact"]["phone"];
 contactBody[2].innerHTML = siteContent["contact"]["email"];
-//------End Contact 
 
-//---Footer 
-const footer = document.querySelector("footer");
+let footer = document.querySelector("footer");
 footer.innerHTML = siteContent["footer"]["copyright"];
-//------End Footer 
+
