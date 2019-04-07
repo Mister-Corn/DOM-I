@@ -44,18 +44,18 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
 //---Stretch: Button
 // We'll hide a lot of the page until the button is clicked.
-const bottomHalf = document.querySelectorAll(".main-content, .contact");
-bottomHalf.forEach(element => element.style.display = "none");
+document.querySelectorAll(".main-content, .contact").forEach(element => element.style.display = "none");
 // Now, to add an eventListener to the button and function that runs when button is clicked
 const button = document.querySelector(".cta-text button");
 button.addEventListener("click", function() {
   let displayCheck = document.querySelector(".main-content").style.display;
   if (displayCheck === "none") {
-    bottomHalf.forEach(element => element.style.display = "block");
+    document.querySelectorAll(".main-content, .contact").forEach(element => element.style.display = "block");
   } else {
-    bottomHalf.forEach(element => element.style.display = "none");
+    document.querySelectorAll(".main-content, .contact").forEach(element => element.style.display = "none");
   }
   siteContent["contact"]["count"]++;
+  console.log(siteContent["contact"]["count"]);
   document.querySelector("#buttonCounter").innerHTML = `The button has been clicked ${siteContent["contact"]["count"]} times.`
 ;})
 //---------End Stretch: Button
